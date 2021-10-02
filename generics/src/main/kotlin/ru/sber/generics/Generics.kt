@@ -4,24 +4,28 @@ import com.sun.org.apache.xpath.internal.operations.Bool
 import java.util.*
 
 // 1.
-//fun compare(p1: Pair, p2: Pair): Boolean {
-//    return false
-//}
+fun <V, V2> compare(p1: Pair<V, V2>, p2: Pair<V, V2>): Boolean =  p1 == p2
+
 
 // 2.
-fun countGreaterThan(anArray: Array<Any>, elem: Any): Int {
-    return 0
-}
+fun <T: Comparable<T>> countGreaterThan(anArray: Array<T>, elem: T): Int = anArray.filter { it > elem }.size
+
 
 // 3.
-class Sorter {
-//    val list: MutableList
-//
-//    fun add(value: Any) {
-//    }
+class Sorter<T: Comparable<T>> {
+    val list: MutableList<T> = mutableListOf()
+
+    fun add(value: T) {
+        list.add(value)
+        list.sort()
+    }
 }
 
-// 4.
-class Stack {
 
+// 4.
+class Stack<T> {
+    val stack = mutableListOf<T>()
+    fun isEmpty() = stack.isEmpty()
+    fun push(stackElement: T) = stack.add(stackElement)
+    fun pop(): T = stack.removeLast()
 }
