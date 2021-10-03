@@ -4,7 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Bool
 import java.util.*
 
 // 1.
-fun <V, V2> compare(p1: Pair<V, V2>, p2: Pair<V, V2>): Boolean =  p1 == p2
+fun <V1, V2> compare(p1: Pair<V1, V2>, p2: Pair<V1, V2>): Boolean =  p1 == p2
 
 
 // 2.
