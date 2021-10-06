@@ -25,7 +25,7 @@ class DataValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
         val reg = "[аА-яЯ]+$".toRegex()
 
-        if (value == null)
+        if (value.isNullOrEmpty())
             return listOf(ErrorCode.NULL_VALUE)
 
         if (value.length > 16)
