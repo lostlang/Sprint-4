@@ -7,7 +7,7 @@ class PhoneValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
         val reg = "[78][0-9]+$".toRegex()
 
-        if (value == null)
+        if (value.isNullOrEmpty())
             return listOf(ErrorCode.NULL_VALUE)
 
         if (value.length != 11)
