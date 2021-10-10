@@ -43,7 +43,7 @@ class EmailValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
         val reg = "^[aA-zZ0-9]+@[aA-zZ]+\\.[aA-zZ]+$".toRegex()
 
-        if (value == null)
+        if (value.isNullOrEmpty())
             return listOf(ErrorCode.NULL_VALUE)
 
         if (value.length > 32)
@@ -61,7 +61,7 @@ class SnilsValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
         val regex = "[0-9]+".toRegex()
 
-        if (value == null)
+        if (value.isNullOrEmpty())
             return listOf(ErrorCode.INVALID_EMAIL)
 
         if (value.length != 11)
